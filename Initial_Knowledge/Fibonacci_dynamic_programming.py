@@ -1,7 +1,7 @@
 """
 This Program is capable of printing nth fibonacci Number
 and i will be using **time** Module just to get real time idea how
-much time will the DP method took to solve the problem
+much time will the DP method took to solve the problem knowledge
 
 
 """
