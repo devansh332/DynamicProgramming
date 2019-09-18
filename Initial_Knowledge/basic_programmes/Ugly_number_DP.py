@@ -1,27 +1,48 @@
-def uglyNumber(n):
-    result = [0] * n
-    result[0] = 1
-    i2, i3, i5 = [0, 0, 0]
+#this code is from geeks of geeks i have ownership on this code
+# Python program to find n'th Ugly number
 
-    N2 = 2
-    N3 = 3
-    N4 = 5
+# Function to get the nth ugly number 
+def getNthUglyNo(n):
+    ugly = [0] * n  # To store ugly numbers
+
+    # 1 is the first ugly number 
+    ugly[0] = 1
+
+    # i2, i3, i5 will indicate indices for 2,3,5 respectively 
+    i2 = i3 = i5 = 0
+
+    # set initial multiple value 
+    next_multiple_of_2 = 2
+    next_multiple_of_3 = 3
+    next_multiple_of_5 = 5
+
+    # start loop to find value from ugly[1] to ugly[n] 
     for l in range(1, n):
-        result[l] = min(N2, N3, N4)
-        if result[l] == N2:
+
+        # choose the min value of all available multiples 
+        ugly[l] = min(next_multiple_of_2, next_multiple_of_3, next_multiple_of_5)
+
+        # increment the value of index accordingly 
+        if ugly[l] == next_multiple_of_2:
             i2 += 1
-            N2 = result[i2] * 2
+            next_multiple_of_2 = ugly[i2] * 2
 
-        if result[l] == N3:
+        if ugly[l] == next_multiple_of_3:
             i3 += 1
-            N3 = result[i3] * 3
+            next_multiple_of_3 = ugly[i3] * 3
 
-        if result[l] == N4:
+        if ugly[l] == next_multiple_of_5:
             i5 += 1
-            N4 = result[i5] * 5
+            next_multiple_of_5 = ugly[i5] * 5
 
-    # return result[n] value
-    return result[-1]
+    return ugly[-1]
 
 
-print(uglyNumber(150))
+def main():
+    n = 150
+
+    print(getNthUglyNo(n))
+
+
+if __name__ == '__main__':
+    main()
